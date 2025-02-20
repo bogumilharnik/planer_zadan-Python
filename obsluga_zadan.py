@@ -26,10 +26,10 @@ def wczytaj_liste_zadan():
                 kategoria = row[1]
                 status = row[2].strip().lower() == 'true'
                 lista_zadan.append({"opis": opis_zadania, "kategoria": kategoria, "status": status})
-                if lista_zadan:
-                    print(f"Lista zadań została wczytana z pliku '{path_file}'.")
-                else:
-                    print(f"Brak zadań do wczytania z pliku '{path_file}'.")
+            if lista_zadan:
+                print(f"Lista zadań została wczytana z pliku '{path_file}'.")
+            else:
+                print(f"Brak zadań do wczytania z pliku '{path_file}'.")
     except FileNotFoundError as error:
         print(f"Błąd odczytu pliku: {error}")
     except ValueError as error:
@@ -83,10 +83,11 @@ def edytuj_liste_zadan(lista_zadan):
         if not nowa_kategoria:
             print("Błąd: Kategoria nie może być pusta.")
             return
-        nowy_status = input("Podaj nowy status: ").strip().lower() == 'true'
+        nowy_status = input("Podaj nowy status: ").strip().lower()
         if nowy_status not in ['true', 'false']:
             print("Błąd: Status musi być 'True' lub 'False'.")
             return
+        nowy_status = nowy_status == 'true'
         
         lista_zadan[numer] = {"opis": nowy_opis,"kategoria": nowa_kategoria,"status": nowy_status}
         print("Zadanie zostało zaktualizowane.")
