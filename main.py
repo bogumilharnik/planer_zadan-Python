@@ -37,7 +37,9 @@ while True:
     
     elif wybor == '5':
         if not lista_zadan:
+            print("***********************")
             print("\nLista zadań jest pusta.\n")
+            print("***********************\n")
         else:
             for zadanie in lista_zadan:
                 print(f" - {zadanie['opis']} ({zadanie['kategoria']}) – {'Wykonane' if zadanie['status'] else 'Niewykonane'}")
@@ -58,6 +60,13 @@ while True:
 
     elif wybor == '0':  # Wyjście – kończymy pętlę
         print("Kończę program.")
+        
+        if lista_zadan:
+            decyzja = input("Czy chcesz zapisać zmiany w pliku przed wyjściem? (tak/nie): ").strip().lower()
+            if decyzja == "tak":
+                plik_csv = input("Podaj pełną ścieżkę do pliku CSV (z rozszerzeniem .csv): ")
+                save_to_csv(plik_csv, lista_zadan)
+        
         break
 
     else:
