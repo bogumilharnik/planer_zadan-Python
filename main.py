@@ -1,4 +1,4 @@
-from obsluga_zadan import utworz_folder, dodaj_zadania, edytuj_liste_zadan, usun_zadanie, save_to_txt, save_to_csv
+from obsluga_zadan import utworz_folder, dodaj_zadania, edytuj_liste_zadan, usun_zadanie, save_to_txt, save_to_csv, save_to_json
 
 plik_txt = input("Podaj pełną ścieżkę do pliku TXT (z rozszerzeniem .txt): ")
 plik_csv = input("Podaj pełną ścieżkę do pliku CSV (z rozszerzeniem .csv): ")

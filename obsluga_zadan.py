@@ -148,3 +148,11 @@ def save_to_csv(plik_csv, lista_zadan):
         print(f"Zapisano dane do pliku '{plik_csv}'.")
     except IOError as error:
         print(f"Błąd zapisu pliku: {error}")
+        
+def save_to_json(plik_json, lista_zadan):
+    try:
+        with open(plik_json, 'w', encoding='utf-8') as plik_json_f:
+            json.dump(lista_zadan, plik_json_f, indent=4)
+        print(f"Zapisano dane do pliku '{plik_json}'.")
+    except IOError as error:
+        print(f"Błąd zapisu pliku: {error}")
